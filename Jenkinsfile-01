@@ -32,7 +32,7 @@ Pipeline{
 
         stage('PUSH TO REGISTRY'){
             steps{
-                scripts{
+                script{
                     sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 905418436025.dkr.ecr.us-east-1.amazonaws.com'
                     sh 'docker push 905418436025.dkr.ecr.us-east-1.amazonaws.com/dev-project:$BUILD_NUMBER'
                 }
